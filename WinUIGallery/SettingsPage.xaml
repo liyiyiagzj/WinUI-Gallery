@@ -38,30 +38,30 @@
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,12,0,0"
-                    Text="Theme Mode" />
+                    Text="主题模式" />
                 <StackPanel x:Name="ThemePanel" Margin="0,10,0,0">
-                    <RadioButton Tag="Light" Checked="OnThemeRadioButtonChecked" Content="Light" KeyDown="OnThemeRadioButtonKeyDown" />
-                    <RadioButton Tag="Dark" Checked="OnThemeRadioButtonChecked" Content="Dark" />
-                    <RadioButton Tag="Default" Checked="OnThemeRadioButtonChecked" Content="Use system setting" />
+                    <RadioButton Tag="Light" Checked="OnThemeRadioButtonChecked" Content="浅色" KeyDown="OnThemeRadioButtonKeyDown" />
+                    <RadioButton Tag="Dark" Checked="OnThemeRadioButtonChecked" Content="深色" />
+                    <RadioButton Tag="Default" Checked="OnThemeRadioButtonChecked" Content="使用系统设置" />
                 </StackPanel>
                 
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="Sound" />
+                    Text="声音" />
                 <StackPanel Margin="0,10,0,0">
-                    <ToggleSwitch x:Name="soundToggle" Header="Controls provide audible feedback" Toggled="soundToggle_Toggled" OffContent="Off" OnContent="On" Margin="0,0,0,4"/>
-                    <CheckBox x:Name="spatialSoundBox" Unchecked="spatialSoundBox_Unchecked" Checked="spatialSoundBox_Checked" IsEnabled="False" Content="Spatial Audio"/>
+                    <ToggleSwitch x:Name="soundToggle" Header="控件提供可听见的反馈" Toggled="soundToggle_Toggled" OffContent="Off" OnContent="On" Margin="0,0,0,4"/>
+                    <CheckBox x:Name="spatialSoundBox" Unchecked="spatialSoundBox_Unchecked" Checked="spatialSoundBox_Checked" IsEnabled="False" Content="空间音频"/>
                     <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" FontStyle="Italic" Margin="0,8,0,0">
-                        See the <Hyperlink x:Name="soundPageHyperlink" Click="soundPageHyperlink_Click">Sound page</Hyperlink> for how to enable sound in your app!
+                        有关如何在应用中启用声音的 <Hyperlink x:Name="soundPageHyperlink" Click="soundPageHyperlink_Click">声音页面</Hyperlink> ！
                     </TextBlock>
                 </StackPanel>
 
-                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,40,0,0" Text="Navigation Style" />
+                <TextBlock Style="{StaticResource SubtitleTextBlockStyle}" Margin="0,40,0,0" Text="导航样式" />
                 <RadioButtons x:Name="navigationLocation" Margin="0,10,0,0"
-                        Header="Navigation position" SelectionChanged="navigationLocation_SelectionChanged">
-                    <RadioButton Content="Left"/>
-                    <RadioButton Content="Top"/>
+                        Header="导航位置" SelectionChanged="navigationLocation_SelectionChanged">
+                    <RadioButton Content="左"/>
+                    <RadioButton Content="最佳"/>
                 </RadioButtons>
 
                 <StackPanel x:Name="ScreenshotSettingsGrid">
@@ -82,56 +82,56 @@
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="Teaching Tips" />
+                    Text="教学技巧" />
                 <StackPanel Margin="0,10,0,0">
-                    <Button Content="Reset the &quot;Generate Link to Page&quot; Teaching Tip" Click="OnResetTeachingTipsButtonClick" Margin="0,4,0,0"/>
+                    <Button Content="重置 &quot;生成链接到页面&quot; 教学提示" Click="OnResetTeachingTipsButtonClick" Margin="0,4,0,0"/>
                 </StackPanel>
 
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="About" />
+                    Text="关于" />
                 <RichTextBlock MaxWidth="840" Margin="0,10,0,0" IsTextSelectionEnabled="True">
                     <Paragraph>
-                        This app is the interactive companion to the
-                        <Hyperlink NavigateUri="https://developer.microsoft.com/windows/apps/design">Fluent Design System web site</Hyperlink>.
+                        这个应用程序是互动的伴侣
+                        <Hyperlink NavigateUri="https://developer.microsoft.com/windows/apps/design">Fluent Design System 网站</Hyperlink>.
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        Source code:
+                        源代码：
                         <Hyperlink NavigateUri="https://github.com/microsoft/WinUI-Gallery">GitHub</Hyperlink>
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Run>To clone the source repository:</Run>
+                        <Run>克隆来源存储库：</Run>
                         <Run FontStyle="Italic">git clone https://github.com/microsoft/WinUI-Gallery</Run>
                     </Paragraph>
                 </RichTextBlock>
                 <TextBlock Margin="0,10,0,0" IsTextSelectionEnabled="True">
-                    Version: 
+                    版本：
                     <Run Text="{x:Bind Version}" FontWeight="Bold" />
                 </TextBlock>
 
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="Found a bug? Want a new sample?" />
+                    Text="找到一个错误？ 想要一个新样本吗？" />
                 <RichTextBlock MaxWidth="840" Margin="0,10,0,0" IsTextSelectionEnabled="True">
                     <Paragraph>
-                        If you have found a bug within the WinUI 3 Gallery, please file an issue on GitHub:
+                        如果您在Winui 3画廊中找到了一个错误，请在GitHub上提交问题：
                     </Paragraph>
                     <Paragraph Margin="0,10,0,10">
-                        <Hyperlink NavigateUri="https://github.com/microsoft/WinUI-Gallery/issues/new?template=bug_report.md">New WinUI 3 Gallery Bug Report</Hyperlink>
+                        <Hyperlink NavigateUri="https://github.com/microsoft/WinUI-Gallery/issues/new?template=bug_report.md">新Winui 3 Gallery Bug报告</Hyperlink>
                     </Paragraph>
                     <Paragraph>
-                        If you would like a new sample, request it on GitHub:
+                        如果您想要一个新样本，请在GitHub上要求它：
                     </Paragraph>
                     <Paragraph Margin="0,10,0,10">
-                        <Hyperlink NavigateUri="https://github.com/microsoft/WinUI-Gallery/issues/new?template=sample_request.md">New Sample Request</Hyperlink>
+                        <Hyperlink NavigateUri="https://github.com/microsoft/WinUI-Gallery/issues/new?template=sample_request.md">新的样本请求</Hyperlink>
                     </Paragraph>
                     <Paragraph>
-                        If you found a bug in your app (not in the WinUI Gallery) and need help, file an issue on the WinUI GitHub:
+                        如果您在应用程序中找到错误（不是在Winui画廊中）并需要帮助，请在Winui Github上提交问题：
                     </Paragraph>
                     <Paragraph Margin="0,10,0,10">
-                        <Hyperlink NavigateUri="https://github.com/microsoft/microsoft-ui-xaml/issues/new/choose">New WinUI Bug Report</Hyperlink>
+                        <Hyperlink NavigateUri="https://github.com/microsoft/microsoft-ui-xaml/issues/new/choose">新的Winui错误报告</Hyperlink>
                     </Paragraph>
 
                 </RichTextBlock>
@@ -139,10 +139,10 @@
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="Dependencies and References" />
+                    Text="依赖性和参考" />
                 <RichTextBlock IsTextSelectionEnabled="True" MaxWidth="840" Margin="0,10,0,0">
                     <Paragraph Margin="0,10,0,10">
-                        <Hyperlink NavigateUri="https://aka.ms/winui">Windows UI Library</Hyperlink>
+                        <Hyperlink NavigateUri="https://aka.ms/winui">Windows UI库</Hyperlink>
                     </Paragraph>
                     <Paragraph Margin="0,10,0,10">
                         <Hyperlink NavigateUri="https://github.com/WilliamABradley/ColorCode-Universal">ColorCode-Universal</Hyperlink>
@@ -151,41 +151,41 @@
                         <Hyperlink NavigateUri="https://github.com/Microsoft/Win2D">Win2D</Hyperlink>
                     </Paragraph>
                     <Paragraph Margin="0,10,0,10">
-                        <Hyperlink NavigateUri="https://github.com/Microsoft/XamlBehaviors">Xaml Behaviors</Hyperlink>
+                        <Hyperlink NavigateUri="https://github.com/Microsoft/XamlBehaviors">XAML行为</Hyperlink>
                     </Paragraph>
                 </RichTextBlock>
 
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="Companion apps" />
+                    Text="伴侣应用" />
                 <RichTextBlock MaxWidth="840" Margin="0,10,0,0" IsTextSelectionEnabled="True">
                     <Paragraph>
-                        Check out these great companion apps:
+                        查看这些出色的伴侣应用程序：
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Hyperlink NavigateUri="https://www.microsoft.com/store/productId/9NBLGGH4TLCQ">Windows Community Toolkit Sample app</Hyperlink>
+                        <Hyperlink NavigateUri="https://www.microsoft.com/store/productId/9NBLGGH4TLCQ">Windows社区工具包样品应用程序</Hyperlink>
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Hyperlink NavigateUri="https://www.microsoft.com/store/productId/9N2XD3Q8X57C">Fluent XAML Theme Editor</Hyperlink>
+                        <Hyperlink NavigateUri="https://www.microsoft.com/store/productId/9N2XD3Q8X57C">Fluent XAML 主题编辑器</Hyperlink>
                     </Paragraph>
                     <Paragraph Margin="0,10,0,0">
-                        <Hyperlink NavigateUri="https://www.microsoft.com/store/productId/9N1H8CZHBPXB">Windows Composition Samples</Hyperlink>
+                        <Hyperlink NavigateUri="https://www.microsoft.com/store/productId/9N1H8CZHBPXB">Windows组成样本</Hyperlink>
                     </Paragraph>
                 </RichTextBlock>
 
                 <TextBlock
                     Style="{StaticResource SubtitleTextBlockStyle}"
                     Margin="0,40,0,0"
-                    Text="Disclaimer" />
+                    Text="免责声明" />
                 <RichTextBlock MaxWidth="840" Margin="0,10,0,50" IsTextSelectionEnabled="True">
-                    <Paragraph>THIS CODE AND INFORMATION IS PROVIDED ‘AS IS’ WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A PARTICULAR PURPOSE.</Paragraph>
+                    <Paragraph>此代码和信息是“按原样”提供的，无论是明示或暗示的任何形式的保证，包括但不限于针对特定目的的适销性和/或健身的隐含担保。</Paragraph>
                     <Paragraph>
-                        <LineBreak />Copyright (c) Microsoft Corporation. All rights reserved.
+                        <LineBreak /> 版权（C）Microsoft Corporation。 版权所有。
                     </Paragraph>
                     <Paragraph Margin="0,10,0,10">
-                        <Hyperlink NavigateUri="https://go.microsoft.com/fwlink/?LinkId=822631">Microsoft Services Agreement</Hyperlink> ,
-                        <Hyperlink NavigateUri="https://go.microsoft.com/fwlink/?LinkId=521839">Microsoft Privacy Statement</Hyperlink>
+                        <Hyperlink NavigateUri="https://go.microsoft.com/fwlink/?LinkId=822631">微软服务协议</Hyperlink> ,
+                        <Hyperlink NavigateUri="https://go.microsoft.com/fwlink/?LinkId=521839">Microsoft隐私声明</Hyperlink>
                     </Paragraph>
                 </RichTextBlock>
             </StackPanel>
