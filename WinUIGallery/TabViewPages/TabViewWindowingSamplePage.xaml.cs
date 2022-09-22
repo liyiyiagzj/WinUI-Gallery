@@ -34,12 +34,12 @@ namespace AppUIBasics.TabViewPages
 
         private void Tabs_TabItemsChanged(TabView sender, Windows.Foundation.Collections.IVectorChangedEventArgs args)
         {
-            // If there are no more tabs, close the window.
+            // 如果没有更多选项卡，请关闭窗口。
             if (sender.TabItems.Count == 0)
             {
                 WindowHelper.GetWindowForElement(this).Close();
             }
-            // If there is only one tab left, disable dragging and reordering of Tabs.
+            // 如果仅剩下一个选项卡，请禁用标签的拖放和重新排序。
             else if (sender.TabItems.Count == 1)
             {
                 sender.CanReorderTabs = false;
@@ -62,7 +62,7 @@ namespace AppUIBasics.TabViewPages
         void SetupWindow()
         {
 
-            // Main Window -- add some default items
+            // 主窗口 - 添加一些默认项目
             for (int i = 0; i < 3; i++)
             {
                 Tabs.TabItems.Add(new TabViewItem() { IconSource = new Microsoft.UI.Xaml.Controls.SymbolIconSource() { Symbol = Symbol.Placeholder }, Header = $"Item {i}", Content = new MyTabContentControl() { DataContext = $"Page {i}" } });
@@ -72,7 +72,7 @@ namespace AppUIBasics.TabViewPages
 
 
 #if UNIVERSAL
-            // Extend into the titlebar
+            // 扩展到标题栏（Extend into the titlebar）
             var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
             coreTitleBar.ExtendViewIntoTitleBar = true;
 
@@ -86,14 +86,15 @@ namespace AppUIBasics.TabViewPages
 
         private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
         {
-            // To ensure that the tabs in the titlebar are not occluded by shell
-            // content, we must ensure that we account for left and right overlays.
-            // In LTR layouts, the right inset includes the caption buttons and the
-            // drag region, which is flipped in RTL.
+            // 为了确保标题栏中的标签不会被Shell Content遮住，
+            // 我们必须确保计算左右覆盖。
+            // 在LTR布局中，
+            // 正确的插图包括标题按钮和拖动区域，
+            // 该拖动区域以RTL为单位。
 
-            // The SystemOverlayLeftInset and SystemOverlayRightInset values are
-            // in terms of physical left and right. Therefore, we need to flip
-            // then when our flow direction is RTL.
+            // SystemOverLayleFtinset和SystemOverLayrightInset值在物理左右方面。
+            // 因此，当我们的流动方向为RTL时，
+            // 我们需要翻转。
             if (FlowDirection == FlowDirection.LeftToRight)
             {
                 CustomDragRegion.MinWidth = sender.SystemOverlayRightInset;
@@ -105,7 +106,7 @@ namespace AppUIBasics.TabViewPages
                 ShellTitleBarInset.MinWidth = sender.SystemOverlayRightInset;
             }
 
-            // Ensure that the height of the custom regions are the same as the titlebar.
+            // 确保自定义区域的高度与标题栏相同。
             CustomDragRegion.Height = ShellTitleBarInset.Height = sender.Height;
         }
 
@@ -114,7 +115,7 @@ namespace AppUIBasics.TabViewPages
             Tabs.TabItems.Add(tab);
         }
 
-        // Create a new Window once the Tab is dragged outside.
+        // 将选项卡拖出外面后，创建一个新窗口。
         private void Tabs_TabDroppedOutside(TabView sender, TabViewTabDroppedOutsideEventArgs args)
         {
             var newPage = new TabViewWindowingSamplePage();
@@ -131,24 +132,25 @@ namespace AppUIBasics.TabViewPages
 
         private void Tabs_TabDragStarting(TabView sender, TabViewTabDragStartingEventArgs args)
         {
-            // We can only drag one tab at a time, so grab the first one...
+            // 我们一次只能拖动一个选项卡，所以抓住第一个选项卡...
             var firstItem = args.Tab;
 
-            // ... set the drag data to the tab...
+            // ... 将阻力数据设置为选项卡...
             args.Data.Properties.Add(DataIdentifier, firstItem);
 
-            // ... and indicate that we can move it
+            // ... 并表明我们可以移动它
             args.Data.RequestedOperation = DataPackageOperation.Move;
         }
 
         private void Tabs_TabStripDrop(object sender, DragEventArgs e)
         {
-            // This event is called when we're dragging between different TabViews
-            // It is responsible for handling the drop of the item into the second TabView
+            // 当我们在不同的选项卡视图之间拖动时，
+            // 该事件是调用的，
+            // 它负责将项目滴入第二个选项卡视图中
 
             if (e.DataView.Properties.TryGetValue(DataIdentifier, out object obj))
             {
-                // Ensure that the obj property is set before continuing.
+                // 在继续之前，请确保设置OBJ属性。
                 if (obj == null)
                 {
                     return;
@@ -159,10 +161,10 @@ namespace AppUIBasics.TabViewPages
 
                 if (destinationItems != null)
                 {
-                    // First we need to get the position in the List to drop to
+                    // 首先，我们需要将列表中的位置置于
                     var index = -1;
 
-                    // Determine which items in the list our pointer is between.
+                    // 确定列表中的哪个项目之间的指针。
                     for (int i = 0; i < destinationTabView.TabItems.Count; i++)
                     {
                         var item = destinationTabView.ContainerFromIndex(i) as TabViewItem;
@@ -174,28 +176,28 @@ namespace AppUIBasics.TabViewPages
                         }
                     }
 
-                    // The TabView can only be in one tree at a time. Before moving it to the new TabView, remove it from the old.
+                    // TAB视图一次只能在一棵树中。 将其移至新的标签视图之前，请将其从旧视图中删除。
                     var destinationTabViewListView = ((obj as TabViewItem).Parent as TabViewListView);
                     destinationTabViewListView.Items.Remove(obj);
 
                     if (index < 0)
                     {
-                        // We didn't find a transition point, so we're at the end of the list
+                        // 我们没有找到过渡点，所以我们处在列表的尽头
                         destinationItems.Add(obj);
                     }
                     else if (index < destinationTabView.TabItems.Count)
                     {
-                        // Otherwise, insert at the provided index.
+                        // 否则，以提供的索引插入。
                         destinationItems.Insert(index, obj);
                     }
 
-                    // Select the newly dragged tab
+                    // 选择新拖动的选项卡
                     destinationTabView.SelectedItem = obj;
                 }
             }
         }
 
-        // This method prevents the TabView from handling things that aren't text (ie. files, images, etc.)
+        // 此方法可防止TabView处理不文本的内容（即文件，图像等）
         private void Tabs_TabStripDragOver(object sender, DragEventArgs e)
         {
             if (e.DataView.Properties.ContainsKey(DataIdentifier))
