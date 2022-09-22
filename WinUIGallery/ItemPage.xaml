@@ -22,9 +22,9 @@
     mc:Ignorable="d">
 
     <!--
-        This grid acts as a root panel for the page that defines two rows:
-        * Row 0 contains the back button and page title
-        * Row 1 contains the rest of the page layout
+        该网格充当定义两个行的页面的根面板：
+        * 第0行包含“后退”按钮和页面标题
+        * 第1行包含页面布局的其余部分
     -->
     <Grid
         x:Name="rootPanel"
@@ -107,7 +107,7 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <!--  Content Region  -->
+        <!--  内容区域  -->
         <ScrollViewer
             x:Name="svPanel"
             VerticalScrollBarVisibility="Auto"
@@ -216,20 +216,20 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate x:DataType="x:String">
-                                    <!-- A HyperlinkButton must always provide an accessible name to a screen reader which
-                                         conveys the purpose of the link. By default, when the HyperlinkButton is built
-                                         as below, with an Image and TextBlock, the HyperlinkButton provides no accessible
-                                         name. So bind the accessible name to the same data that provides the text shown
-                                         visually on the contained TextBlock. -->
+                                    <!--
+                                    Hyperlinkbutton必须始终为屏幕读取器提供可访问的名称，该名称传达了链接的目的。
+                                    默认情况下，当Hyperlinkbutton的构建如下所示，带有图像和文本块时，
+                                    HyperlinkButton没有可访问的名称。 因此，将可访问的名称绑定到相同的数据，
+                                    该数据可在包含的文本块上视觉上显示文本。
+                                    -->
                                     <HyperlinkButton AutomationProperties.Name="{x:Bind}" Click="OnRelatedControlClick">
                                         <RelativePanel>
-                                            <!-- Now that the HyperlinkButton has a helpful accessible name, it serves no
-                                                 useful purpose for the contained Image, (which is purely decorative,) or
-                                                 the contained TextBlock to be exposed to a screen reader. All the information
-                                                 required by customers using a screen reader is accessible directly through the
-                                                 Hyperlink button. As such, mark the contained elements as not being interesting
-                                                 to a screen reader through use of the AutomationProperties.AccessibilityView
-                                                 property. -->
+                                            <!--
+                                            既然超链接的名称具有有用的可访问名称，
+                                            则对包含的图像（纯粹是装饰性）或将接触到屏幕读取器的包含的文本块没有任何有用的目的。
+                                            使用屏幕读取器的客户所需的所有信息都可以通过超链接按钮直接访问。
+                                            因此，将包含的元素标记为通过使用AutomationProperties.AccessibilityView属性对屏幕阅读器的有趣。
+                                            -->
                                             <Image
                                                 AutomationProperties.AccessibilityView="Raw"
                                                 x:Name="iconImage"
