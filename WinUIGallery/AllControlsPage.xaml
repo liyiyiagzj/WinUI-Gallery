@@ -19,17 +19,17 @@
     NavigationCacheMode="Enabled"
     HighContrastAdjustment="None">
 
-    <!--  This grid acts as a root panel for the page.  -->
+    <!--  该网格充当页面的根面板。  -->
     <Grid Background="{ThemeResource HomePageBackgroundBrush}">
         <VisualStateManager.VisualStateGroups>
-            <!--  Visual states reflect the application's window size  -->
+            <!--  视觉状态反映了应用程序的窗口大小  -->
             <VisualStateGroup x:Name="LayoutVisualStates">
                 <VisualState x:Name="WideLayout">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="{StaticResource Breakpoint640Plus}" />
                     </VisualState.StateTriggers>
-                    <!-- XAML_BEHAVIORS_REMOVED
-                        Until the XamlBehaviors are updated to work with lifted XAML, just use the smallHeaderText all the time.
+                    <!--
+                    XAML_BEHAVIORS_REMED，直到更新Xamlbehaviors来使用XAML，只需一直使用SmalleHeaderText即可。
                     -->
                     <VisualState.Setters>
                         <Setter Target="pageHeader.Visibility" Value="Collapsed" />
