@@ -20,19 +20,19 @@
         </Style>
     </Page.Resources>
     <StackPanel>
-        <local:ControlExample x:Name="Example1" HeaderText="A simple TextBlock.">
+        <local:ControlExample x:Name="Example1" HeaderText="一个简单的文本块。">
             <local:ControlExample.Example>
-                <TextBlock Text="I am a TextBlock." />
+                <TextBlock Text="我是文本块。" />
             </local:ControlExample.Example>
             <local:ControlExample.Xaml>
                 <x:String>
-                    &lt;TextBlock Text="I am a TextBlock"/&gt;
+                    &lt;TextBlock Text="我是文字块"/&gt;
                 </x:String>
             </local:ControlExample.Xaml>
         </local:ControlExample>
-        <local:ControlExample x:Name="Example2" HeaderText="A TextBlock with a style applied.">
+        <local:ControlExample x:Name="Example2" HeaderText="具有应用样式的文本块。">
             <local:ControlExample.Example>
-                <TextBlock Text="I am a styled TextBlock." Style="{StaticResource CustomTextBlockStyle}" />
+                <TextBlock Text="我是拥有样式的文本块。" Style="{StaticResource CustomTextBlockStyle}" />
             </local:ControlExample.Example>
             <local:ControlExample.Xaml>
                 <x:String xml:space="preserve">
@@ -43,38 +43,38 @@
     &lt;/Style&gt;
 &lt;Page.Resources&gt;
 
-&lt;TextBlock Text="I am a styled TextBlock" Style="{StaticResource CustomTextBlockStyle}"/&gt;
+&lt;TextBlock Text="我是拥有样式的文本块。" Style="{StaticResource CustomTextBlockStyle}"/&gt;
                 </x:String>
             </local:ControlExample.Xaml>
         </local:ControlExample>
-        <local:ControlExample x:Name="Example3" HeaderText="A TextBlock with various properties set.">
+        <local:ControlExample x:Name="Example3" HeaderText="带有各种属性集的文本块。">
             <local:ControlExample.Example>
-                <TextBlock Text="I am super excited to be here!" FontFamily="Arial" FontSize="24" FontStyle="Italic"
+                <TextBlock Text="我很高兴能来到这里！" FontFamily="Arial" FontSize="24" FontStyle="Italic"
                         TextWrapping="WrapWholeWords" CharacterSpacing="200" Foreground="CornflowerBlue" />
             </local:ControlExample.Example>
             <local:ControlExample.Xaml>
                 <x:String xml:space="preserve">
-&lt;TextBlock Text="I am super excited to be here!" FontFamily="Arial"
+&lt;TextBlock Text="我很高兴能来到这里！" FontFamily="Arial"
     FontSize="24" FontStyle="Italic" TextWrapping="WrapWholeWords"
     CharacterSpacing="200" Foreground="CornflowerBlue" /&gt;
                 </x:String>
             </local:ControlExample.Xaml>
         </local:ControlExample>
-        <local:ControlExample x:Name="Example4" HeaderText="A TextBlock with inline text elements.">
+        <local:ControlExample x:Name="Example4" HeaderText="带有内联文本元素的文本块。">
             <local:ControlExample.Example>
                 <TextBlock>
-                            <Run FontFamily="Times New Roman" Foreground="DarkGray">Text in a TextBlock doesn't have to be a simple string.</Run>
+                            <Run FontFamily="Times New Roman" Foreground="DarkGray">文本块中的文本不必是简单的字符串。</Run>
                             <LineBreak />
-                            <Span>Text can be <Bold>bold</Bold>, <Italic>italic</Italic>, or <Underline>underlined</Underline>.</Span></TextBlock>
+                            <Span>文字可以是 <Bold>加粗</Bold>, <Italic>斜体</Italic>, 或者 <Underline>下划线</Underline>.</Span></TextBlock>
             </local:ControlExample.Example>
             <local:ControlExample.Xaml>
                 <x:String xml:space="preserve">
 &lt;TextBlock&gt;
     &lt;Run FontFamily="Times New Roman" Foreground="DarkGray"&gt;
-        Text in a TextBlock doesn't have to be a simple string.&lt;/Run&gt;
+        文本块中的文本不必是简单的字符串.&lt;/Run&gt;
     &lt;LineBreak/&gt;
-    &lt;Span&gt;Text can be &lt;Bold&gt;bold&lt;/Bold&gt;,
-        &lt;Italic&gt;italic&lt;/Italic&gt;, or &lt;Underline&gt;underlined&lt;/Underline&gt;. &lt;/Span&gt;
+    &lt;Span&gt;文字可以是 &lt;Bold&gt;加粗&lt;/Bold&gt;,
+        &lt;Italic&gt;斜体&lt;/Italic&gt;, 或者 &lt;Underline&gt;下划线&lt;/Underline&gt;. &lt;/Span&gt;
 &lt;/TextBlock&gt;
                 </x:String>
             </local:ControlExample.Xaml>
