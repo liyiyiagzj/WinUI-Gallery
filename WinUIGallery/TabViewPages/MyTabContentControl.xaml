@@ -11,9 +11,9 @@
 
     <StackPanel Padding="12">
         <TextBlock Text="{Binding}" Style="{ThemeResource TitleTextBlockStyle}" />
-        <TextBlock Text="Drag the Tab outside of the window to spawn a new window." Style="{ThemeResource SubtitleTextBlockStyle}" />
-        <TextBlock Text="Notice that the state of the Tab is maintained in the new window. For example, if you toggle the ToggleSwitch ON, it will remain ON in the new window." Style="{ThemeResource BodyTextBlockStyle}" />
-        <ToggleSwitch x:Name="ControlToggle" Header="Turn on ProgressRing" Margin="0,8" />
+        <TextBlock Text="将窗口外面的标签拖动以产生新窗口。" Style="{ThemeResource SubtitleTextBlockStyle}" />
+        <TextBlock Text="请注意，选项卡的状态已保留在新窗口中。 例如，如果切换ToggleSwitch（切换开关），它将保留在新窗口中。" Style="{ThemeResource BodyTextBlockStyle}" />
+        <ToggleSwitch x:Name="ControlToggle" Header="打开进度" Margin="0,8" />
         <ProgressRing IsActive="{x:Bind ControlToggle.IsOn, Mode=OneWay}" HorizontalAlignment="Left" />
     </StackPanel>
 </UserControl>
