@@ -77,9 +77,8 @@
             </Grid.Resources>
 
             <TextBlock x:Name="CurrentPageTextBlock" AutomationProperties.AutomationId="__CurrentPage"  FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
-            <!-- Automation Helpers -->
-            <!-- These are not visible, but are used via UIA. They are fundamental to the operation of our test automation, so they should not be collapsed since 
-                                that prevents them from showing up in the UIA tree.-->
+            <!-- 自动化帮助者 -->
+            <!-- 这些是不可见的，但可以通过UIA使用。 它们对于我们的测试自动化的运行至关重要，因此不应崩溃，因为这会阻止它们出现在UIA树上。-->
             <Button x:Name="GoBackInvokerButton" AutomationProperties.AutomationId="__GoBackInvoker" Style="{StaticResource AutomationHelperStyle}" Click="GoBackInvokerButton_Click" />
             <Button x:Name="CloseAppInvokerButton" AutomationProperties.AutomationId="__CloseAppInvoker" Style="{StaticResource AutomationHelperStyle}" Click="CloseAppInvokerButton_Click"/>
             <Button x:Name="WaitForIdleInvokerButton"  AutomationProperties.AutomationId="__WaitForIdleInvoker" Style="{StaticResource AutomationHelperStyle}"  Click="WaitForIdleInvokerButton_Click"/>
@@ -94,8 +93,7 @@
 
         </Grid>
 
-        <!-- Don't set IsTitleBarAutoPaddingEnabled, since it should only be set false when we're using Window.SetTitleBar(), which isn't currently available.
-             Restore by re-applying https://github.com/microsoft/WinUI-Gallery/pull/198 -->
+        <!-- 请勿设置ISTITLEBARAUTOPADDINABLED，因为仅在我们使用window.setTitlebar（）时才将其设置为false，而目前尚不可用。 通过重新应用恢复 https://github.com/microsoft/WinUI-Gallery/pull/198 -->
         <NavigationView
             Canvas.ZIndex="0"
             x:Name="NavigationViewControl"
