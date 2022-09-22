@@ -1,7 +1,7 @@
-﻿The Common directory contains classes that simplify application development.
+﻿公共目录包含简化应用程序开发的类。
 
-Classes in the Common directory form part of your project and may be further enhanced to meet your
-needs.  Care should be taken when altering existing methods and properties as incompatible changes
-will require corresponding changes to code included in a variety of Visual Studio templates.  For
-example, additional pages added to your project are written assuming that the original methods and
-properties in Common classes are still present and that the names of the types have not changed.
+公共目录形式的课程是您项目的一部分，并且可能会进一步增强以满足您的
+需要。 在更改现有方法和属性作为不兼容的更改时，应注意注意
+将需要对各种视觉工作室模板中包含的代码的相应更改。 为了
+例如，添加到项目中的其他页面是书面的，假设原始方法和
+普通类中的属性仍然存在，类型的名称没有更改。
