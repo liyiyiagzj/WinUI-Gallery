@@ -1,10 +1,10 @@
-﻿using Windows.Foundation.Metadata;
+using Windows.Foundation.Metadata;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System.Runtime.InteropServices; // For DllImport
-using WinRT; // required to support Window.As<ICompositionSupportsSystemBackdrop>()
+using WinRT; // 需要支持 Window.As<ICompositionSupportsSystemBackdrop>()
 
 namespace AppUIBasics.SamplePages
 {
@@ -26,7 +26,7 @@ namespace AppUIBasics.SamplePages
         {
             if (Windows.System.DispatcherQueue.GetForCurrentThread() != null)
             {
-                // one already exists, so we'll just use it.
+                // 一个已经存在，所以我们将使用它。
                 return;
             }
 
@@ -71,14 +71,14 @@ namespace AppUIBasics.SamplePages
 
         public void SetBackdrop(BackdropType type)
         {
-            // Reset to default color. If the requested type is supported, we'll update to that.
-            // Note: This sample completely removes any previous controller to reset to the default
-            //       state. This is done so this sample can show what is expected to be the most
-            //       common pattern of an app simply choosing one controller type which it sets at
-            //       startup. If an app wants to toggle between Mica and Acrylic it could simply
-            //       call RemoveSystemBackdropTarget() on the old controller and then setup the new
-            //       controller, reusing any existing m_configurationSource and Activated/Closed
-            //       event handlers.
+            // 重置为默认颜色。 如果支持请求的类型，我们将更新到该类型。
+            // 注意：此示例完全删除任何以前的控制器以重置为默认状态。
+            // 这样做是为了让这个示例可以显示应用程序最常见的模式，
+            // 只需选择它在启动时设置的一种控制器类型。
+            // 如果应用想要在 Mica 和 Acrylic 之间切换，
+            // 它可以简单地在旧控制器上调用 RemoveSystemBackdropTarget()，
+            // 然后设置新控制器，
+            // 重用任何现有的 m_configurationSource 和 Activated/Closed 事件处理程序。
             m_currentBackdrop = BackdropType.DefaultColor;
             tbCurrentBackdrop.Text = "None (default theme color)";
             tbChangeStatus.Text = "";
@@ -106,7 +106,7 @@ namespace AppUIBasics.SamplePages
                 }
                 else
                 {
-                    // Mica isn't supported. Try Acrylic.
+                    // 不支持云母。 试试亚克力。
                     type = BackdropType.DesktopAcrylic;
                     tbChangeStatus.Text += "  Mica isn't supported. Trying Acrylic.";
                 }
@@ -120,7 +120,7 @@ namespace AppUIBasics.SamplePages
                 }
                 else
                 {
-                    // Acrylic isn't supported, so take the next option, which is DefaultColor, which is already set.
+                    // 不支持亚克力，所以选择下一个选项，即默认颜色，它已经设置好了。
                     tbChangeStatus.Text += "  Acrylic isn't supported. Switching to default color.";
                 }
             }
@@ -130,52 +130,52 @@ namespace AppUIBasics.SamplePages
         {
             if (Microsoft.UI.Composition.SystemBackdrops.MicaController.IsSupported())
             {
-                // Hooking up the policy object
+                // 连接策略对象
                 m_configurationSource = new Microsoft.UI.Composition.SystemBackdrops.SystemBackdropConfiguration();
                 this.Activated += Window_Activated;
                 this.Closed += Window_Closed;
                 ((FrameworkElement)this.Content).ActualThemeChanged += Window_ThemeChanged;
 
-                // Initial configuration state.
+                // 初始配置状态。
                 m_configurationSource.IsInputActive = true;
                 SetConfigurationSourceTheme();
 
                 m_micaController = new Microsoft.UI.Composition.SystemBackdrops.MicaController();
 
-                // Enable the system backdrop.
-                // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
+                // 启用系统背景。
+                // 注意：一定要有“using WinRT;” 支持 Window.As<...>() 调用。
                 m_micaController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
                 m_micaController.SetSystemBackdropConfiguration(m_configurationSource);
-                return true; // succeeded
+                return true; // 成功了
             }
 
-            return false; // Mica is not supported on this system
+            return false; // 此系统不支持 Mica
         }
 
         bool TrySetAcrylicBackdrop()
         {
             if (Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController.IsSupported())
             {
-                // Hooking up the policy object
+                // 连接策略对象
                 m_configurationSource = new Microsoft.UI.Composition.SystemBackdrops.SystemBackdropConfiguration();
                 this.Activated += Window_Activated;
                 this.Closed += Window_Closed;
                 ((FrameworkElement)this.Content).ActualThemeChanged += Window_ThemeChanged;
 
-                // Initial configuration state.
+                // 初始配置状态。
                 m_configurationSource.IsInputActive = true;
                 SetConfigurationSourceTheme();
 
                 m_acrylicController = new Microsoft.UI.Composition.SystemBackdrops.DesktopAcrylicController();
 
-                // Enable the system backdrop.
-                // Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
+                // 启用系统背景。
+                // 注意：一定要有“using WinRT;” 支持 Window.As<...>() 调用。
                 m_acrylicController.AddSystemBackdropTarget(this.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());
                 m_acrylicController.SetSystemBackdropConfiguration(m_configurationSource);
-                return true; // succeeded
+                return true; // 成功了
             }
 
-            return false; // Acrylic is not supported on this system
+            return false; // 此系统不支持亚克力
         }
 
         private void Window_Activated(object sender, WindowActivatedEventArgs args)
@@ -185,8 +185,7 @@ namespace AppUIBasics.SamplePages
 
         private void Window_Closed(object sender, WindowEventArgs args)
         {
-            // Make sure any Mica/Acrylic controller is disposed so it doesn't try to
-            // use this closed window.
+            // 确保所有 Mica/Acrylic 控制器都已处理好，这样它就不会尝试使用这个关闭的窗口。
             if (m_micaController != null)
             {
                 m_micaController.Dispose();
